@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get install -y openjdk-7-jdk git
-    JYTHON_VERSION=2.7-rc3
+    JYTHON_VERSION=2.7-rc2
     wget -O /tmp/jython-installer.jar "http://search.maven.org/remotecontent?filepath=org/python/jython-installer/$JYTHON_VERSION/jython-installer-$JYTHON_VERSION.jar"
     java -jar /tmp/jython-installer.jar -s -d /opt/jython
     /opt/jython/bin/pip install virtualenv
