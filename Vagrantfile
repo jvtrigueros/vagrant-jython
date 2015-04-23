@@ -25,9 +25,11 @@ Vagrant.configure(2) do |config|
     wget -O /tmp/jython-installer.jar "http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7-rc3/jython-installer-2.7-rc3.jar"
     java -jar /tmp/jython-installer.jar -s -d /opt/jython
     /opt/jython/bin/pip install virtualenv
+
+    echo 'PATH=/opt/jython/bin:$PATH' >> /etc/profile
     
     su - vagrant -c "git clone https://github.com/jythontools/pip.git --depth 1"
     su - vagrant -c "git clone https://github.com/jythontools/setuptools.git --depth 1"
-    su - vagrant -c "/opt/jython/bin/virtualenv venv --no-setuptools"
+    su - vagrant -c "virtualenv venv --no-setuptools"
   SHELL
 end
